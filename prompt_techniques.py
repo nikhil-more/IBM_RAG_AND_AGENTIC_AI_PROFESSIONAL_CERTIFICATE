@@ -1,4 +1,3 @@
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_ollama.llms import OllamaLLM
 import os
 from dotenv import load_dotenv
@@ -17,7 +16,7 @@ basic_prompt = """
 The wind is
 """
 
-response = llm(basic_prompt)
+response = llm.invoke(basic_prompt)
 
 print("User Prompt : \n", basic_prompt)
 
@@ -32,7 +31,7 @@ Classify the following statement as true or false:
 'The Eiffel Tower is located in Berlin.
 """
 
-response = llm(zero_shot_prompt)
+response = llm.invoke(zero_shot_prompt)
 
 print("User Prompt : \n", zero_shot_prompt)
 
@@ -52,7 +51,7 @@ Now answer following query
 User Query : What 0.9-0.11
 """
 
-response = llm(one_shot_prompt)
+response = llm.invoke(one_shot_prompt)
 
 print("User Prompt : \n", one_shot_prompt)
 
@@ -74,7 +73,7 @@ Now, classify the emotion in the following statement:
 Statement: 'That movie was so scary I had to cover my eyes.'
 """
 
-response = llm(few_shot_prompt)
+response = llm.invoke(few_shot_prompt)
 
 print("User Prompt : \n", few_shot_prompt)
 
@@ -90,7 +89,7 @@ How many apples are there now?'
 Break down each step of your calculation
 """
 
-response = llm(chain_of_though_prompt)
+response = llm.invoke(chain_of_though_prompt)
 
 print("User Prompt : \n", chain_of_though_prompt)
 
@@ -105,7 +104,7 @@ When I was 6, my sister was half of my age. Now I am 70, what age is my sister
 Provide three independent calculations and explanations, then determine the age
 """
 
-response = llm(self_consistency_prompt)
+response = llm.invoke(self_consistency_prompt)
 
 print("User Prompt : \n", self_consistency_prompt)
 
